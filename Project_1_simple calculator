@@ -1,0 +1,102 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Cla implements ActionListener {
+    JLabel jLabel1, jLabel2,jLabel3;
+    JButton jButton1,jButton2,jButton3,jButton4,jButton5;
+    JTextField jTextField1,jTextField2,jTextField3;
+
+
+        Cla(){
+        JFrame jFrame = new JFrame("Darda");
+        jFrame.setSize(1000,1000);
+        jFrame.setLayout(null);
+        jFrame.setVisible(true);
+
+
+        jLabel1 = new JLabel("Number-1");
+        jLabel2 = new JLabel("Number-2");
+        jLabel3 = new JLabel("Total");
+
+        jLabel1.setBounds(50,100,100,50);
+        jLabel2.setBounds(50,150,100,50);
+        jLabel3.setBounds(50,200,100,50);
+
+        jFrame.add(jLabel1);
+        jFrame.add(jLabel2);
+        jFrame.add(jLabel3);
+
+
+
+        jTextField1 = new JTextField();
+        jTextField2 = new JTextField();
+        jTextField3 = new JTextField();
+
+        jTextField1.setBounds(200,100,300,50);
+        jTextField2.setBounds(200,150,300,50);
+        jTextField3.setBounds(200,200,300,50);
+
+        jFrame.add(jTextField1);
+        jFrame.add(jTextField2);
+        jFrame.add(jTextField3);
+
+         jButton1 = new JButton("+");
+         jButton2 = new JButton("-");
+         jButton3 = new JButton("x");
+         jButton4 = new JButton("/");
+         jButton5 = new JButton("%");
+
+        jFrame.add(jButton1);
+        jFrame.add(jButton2);
+        jFrame.add(jButton3);
+        jFrame.add(jButton4);
+        jFrame.add(jButton5);
+
+        jButton1.setBounds(155, 300, 100, 50);
+        jButton2.setBounds(255, 300, 100, 50);
+        jButton3.setBounds(355, 300, 100, 50);
+        jButton4.setBounds(455, 300, 100, 50);
+        jButton5.setBounds(555, 300, 100, 50);
+        jButton1.addActionListener(this);
+        jButton2.addActionListener(this);
+        jButton3.addActionListener(this);
+        jButton4.addActionListener(this);
+        jButton5.addActionListener(this);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        int num1 = Integer.parseInt( jTextField1.getText());
+        int num2 = Integer.parseInt( jTextField2.getText());
+        double res =0.00;
+        if(e.getSource() == jButton1){
+
+            res = num1 +num2;
+        }
+        else if(e.getSource() == jButton2){
+
+            res = num1 -num2;
+        }
+        else if(e.getSource() == jButton3){
+
+            res = num1*num2;
+        }
+        else if (e.getSource() == jButton4){
+
+            res = num1 /num2;
+        }
+        else if (e.getSource() == jButton5){
+
+            res = num1 % num2;
+        }
+
+        String total = String.valueOf(res);
+        jTextField3.setText(total);
+
+    }
+
+    public static void main(String[] args) {
+        Cla cla = new Cla();
+    }
+}
